@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="calculator">
+
+        <input type="text" id="inputNam" readonly>
+
+        <div class="buttons">
+            <button class="number" onclick="addNumber(7)">7</button>
+            <button class="number" onclick="addNumber(8)">8</button>
+            <button class="number" onclick="addNumber(9)">9</button>
+            <button class="operator" onclick="addOperator('/')">/</button>
+            <button class="number" onclick="addNumber(4)">4</button>
+            <button class="number" onclick="addNumber(5)">5</button>
+            <button class="number" onclick="addNumber(6)">6</button>
+            <button class="operator" onclick="addOperator('*')">x</button> 
+            <button class="number" onclick="addNumber(1)">1</button>
+            <button class="number" onclick="addNumber(2)">2</button>
+            <button class="number" onclick="addNumber(3)">3</button>
+            <button class="operator" onclick="addOperator('+')">+</button>
+            <button class="decimal" onclick="addNumber('.')">.</button>
+            <button class="number zero" onclick="addNumber(0)">0</button>
+            <button class="delete" onclick="deleteDigit()">DEL</button>
+            <button class="equel" onclick="calculate()">=</button>
+            <button class="ac" onclick="clearInput('')">AC</button>
+            
+        </div>
+    </div>
+
+    <script>
+
+        let inputNam = document.getElementById("inputNam");
+
+        function addNumber(numVal) {
+            inputNam.value += numVal;
+
+        }
+
+        function addOperator(Operator) {
+            inputNam.value += Operator;
+
+        }
+
+        function calculate() {
+            let result = eval(inputNam.value);
+            inputNam.value = result;
+        }
+
+        function deleteDigit() {
+            let inputValue = inputNam.value;
+
+            if (inputValue.length > 0) {
+                let updatedValue = inputValue.slice(0, -1);
+                inputNam.value = updatedValue;
+            }
+
+        }
+        function clearInput(Nada) {
+            inputNam.value = Nada;
+            
+            
+        }
+    </script>
+</body>
+
+</html>
